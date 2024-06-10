@@ -57,7 +57,7 @@ if __name__ == '__main__':
         # 获取电量
         power_Get = get_eleresult(sysID, roomID, areaID, buildID)
         # 推送电量
-        wx_push(power_Get, wxPushID, app_token)
+        wx_push(power_Get, wxPushID, appToken)
     except Exception as e:
         print(e)
         pass
