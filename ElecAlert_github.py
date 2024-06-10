@@ -53,12 +53,11 @@ def wx_push(power, ID, app_token):
 
 
 if __name__ == '__main__':
-    while True:
-        try:
-            # 获取电量
-            power_Get = get_eleresult(sysID, roomID, areaID, buildID)
-            # 推送电量
-            wx_push(power_Get, wxPushID, app_token)
-        except:
-            print("<error>网络异常")
-            pass
+    try:
+        # 获取电量
+        power_Get = get_eleresult(sysID, roomID, areaID, buildID)
+        # 推送电量
+        wx_push(power_Get, wxPushID, app_token)
+    except:
+        print("<error>网络异常")
+        pass
