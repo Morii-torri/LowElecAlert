@@ -12,6 +12,7 @@ roomID = os.environ.get("ROOM_ID")
 areaID = os.environ.get("AREA_ID")
 buildID = os.environ.get("BUILD_ID")
 wxPushID = os.environ.get("WXPUSH_ID")
+appToken = os.environ.get("APP_TOKEN")
 
 def get_eleresult(sysid, roomid, areaid, buildid):
     url = 'http://epay.sues.edu.cn/epay/wxpage/wanxiao/eleresult?sysid={0}&roomid={1}&areaid={2}&buildid={3}'.format(
@@ -33,13 +34,12 @@ def get_eleresult(sysid, roomid, areaid, buildid):
     return res_float
 
 
-def wx_push(power, ID):
+def wx_push(power, ID, app_token):
     if power <= 15.0:
         content = ("请尽快充值！剩余电量：{0}度".format(power))
     else:
         content = ("剩余电量：{0}度".format(power))
     headers = {"content-type": "application/json"}
-    app_token = 'AT_gyDIE4c3agOUJsPgvUqfM1yXDS0RalZV'
     webapi = 'https://wxpusher.zjiecode.com/api/send/message'
     data = {
         "appToken": app_token,
